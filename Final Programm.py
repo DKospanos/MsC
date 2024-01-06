@@ -22,6 +22,7 @@ def find_coding_regions(dna_sequence):
             stop_index = dna_sequence.upper().replace(' ', '').find(stop_codon, start_index)
             # Check if the distance between start codon and stop codon is a multiple of 3
             if stop_index != -1 and (stop_index - start_index) % 3 == 0:
+                # the + 3 in the end is needed in order to include the stop codon in the regions that will print
                 coding_part = dna_sequence[start_index:stop_index + 3]
                 coding_regions_found.append(coding_part)
                 break
